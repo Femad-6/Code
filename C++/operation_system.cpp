@@ -4,6 +4,11 @@
 #include <unistd.h>
 #include <iostream>
 #include <queue>
+#include <vector>
+#include <algorithm>
+#include <ctime>
+#include <cstdlib>
+#include <cstdio>
 
 using namespace std;
 
@@ -30,11 +35,12 @@ void *barber_process(void *)
         sem_post(&barber);
         sem_post(&mutexlock);
         cout << "理发师正在给第" << id << "位等待的顾客理发" << endl;
-        srand(time(0));
-        /* sleep(rand() % 3 + 2); */
-        sleep(3);
+        sleep(rand() % 3 + 2); // 取消注释并替换固定值
     }
 }
+
+// 在全局变量区域添加
+pthread_mutex_t print_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 void *consumer_process(void *p)
 {
@@ -47,9 +53,11 @@ void *consumer_process(void *p)
         sem_post(&consumers);
         sem_post(&mutexlock);
         sem_wait(&barber);
+        pthread_mutex_lock(&print_mutex);
         cout << "第" << i << "位顾客来了，正在接受理发师的理发服务" << endl;
         cout << "正在等待理发师理发的顾客还有" << waiting << "位" << endl
              << endl;
+        pthread_mutex_unlock(&print_mutex);
     }
     else
     {
@@ -59,12 +67,16 @@ void *consumer_process(void *p)
     }
 
     pthread_exit(0);
+    return NULL;
 }
 
 int main()
 {
+    srand(time(0)); // 移到主函数开头，只初始化一次
+
     pthread_t p_barber;
-    pthread_t p_consumers[10];
+    pthread_t p_consumers[20];
+    int customer_ids[20]; // 新增顾客ID数组
 
     int num_consumers = 20;
 
@@ -72,21 +84,23 @@ int main()
     sem_init(&consumers, 0, 0);
     sem_init(&mutexlock, 0, 1);
 
-    pthread_create(&p_barber, nullptr, barber_process, nullptr);
+    pthread_create(&p_barber, NULL, barber_process, NULL);
 
     for (int i = 0; i < num_consumers; i++)
     {
-        pthread_create(&p_consumers[i], nullptr, consumer_process, &i);
+        customer_ids[i] = i + 1; // 为每个顾客分配唯一ID
+        pthread_create(&p_consumers[i], NULL, consumer_process, &customer_ids[i]);
         srand(time(0));
         sleep(rand() % 2 + 1);
     }
 
     for (int i = 0; i < num_consumers; i++)
     {
-        pthread_join(p_consumers[i], nullptr);
+        pthread_join(p_consumers[i], NULL);
     }
 
     sleep(5);
 
     return 0;
 }
+// 用dev-c++编译通过
