@@ -1,0 +1,26 @@
+# Compiled binaries
+*.exe
+*.out
+C++/emg_robotic_arm
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build artifacts
+*.o
+*.obj
+*.so
+*.dll
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
