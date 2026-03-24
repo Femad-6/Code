@@ -1,0 +1,153 @@
+.map-view-container {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+}
+
+.map-card {
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.map-container {
+    height: 500px;
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.leaflet-map {
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.marker-popup {
+    min-width: 200px;
+}
+
+.marker-popup .ant-typography {
+    margin-bottom: 4px;
+}
+
+.route-info {
+    margin-top: 16px;
+    padding: 12px;
+    background: #f5f5f5;
+    border-radius: 6px;
+    border-left: 4px solid #1890ff;
+}
+
+.route-info .ant-typography {
+    margin-bottom: 4px;
+}
+
+/* 全屏模式 */
+.leaflet-container:fullscreen {
+    height: 100vh !important;
+    width: 100vw !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .map-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .map-container {
+        height: 400px;
+    }
+
+    .map-header .ant-space {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 480px) {
+    .map-container {
+        height: 300px;
+    }
+
+    .map-header .ant-select {
+        width: 150px !important;
+    }
+}
+
+/* 自定义标记样式 */
+.leaflet-marker-icon {
+    transition: transform 0.2s ease;
+}
+
+.leaflet-marker-icon:hover {
+    transform: scale(1.1);
+}
+
+/* 路线样式 */
+.leaflet-interactive {
+    cursor: pointer;
+}
+
+/* 弹出窗口样式 */
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.leaflet-popup-content {
+    margin: 12px;
+    line-height: 1.4;
+}
+
+.leaflet-popup-tip {
+    background: white;
+    border: 1px solid #ccc;
+}
+
+/* 控制按钮样式 */
+.ant-btn {
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.ant-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 选择器样式 */
+.ant-select {
+    border-radius: 6px;
+}
+
+.ant-select-focused .ant-select-selector {
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* 卡片样式 */
+.ant-card {
+    border-radius: 8px;
+}
+
+.ant-card-head {
+    border-bottom: 1px solid #f0f0f0;
+    border-radius: 8px 8px 0 0;
+}
+
+.ant-card-body {
+    padding: 16px;
+}
+
+

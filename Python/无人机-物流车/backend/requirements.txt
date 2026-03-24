@@ -1,0 +1,34 @@
+# Flask Web框架
+Flask==2.3.3
+Flask-CORS==4.0.0
+
+# 数据库连接
+mysql-connector-python==8.1.0
+
+# 数据验证
+pydantic==2.4.2
+
+# 密码加密
+Werkzeug==2.3.7
+
+# HTTP请求
+requests==2.31.0
+
+# 日志
+loguru==0.7.2
+
+# 数学计算
+numpy>=1.21.0,<2.0.0
+
+# 测试框架
+pytest==7.4.2
+pytest-flask==1.2.0
+
+# 代码质量
+flake8==6.0.0
+black==23.7.0
+
+# 环境变量
+python-dotenv==1.0.0
+
+
