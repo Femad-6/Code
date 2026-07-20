@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "x64\\Release\\test.obj",
+            "outputs": [
+                "x64\\Release\\test.h_1A7041A939E43B61.ifc.dt.module.json",
+                "x64\\Release\\test.h_1A7041A939E43B61.ifc.dt.d.json",
+                "x64\\Release\\test.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "D:\\Code\\Visual Studio C++\\Security\\Security\\test.h",
+                    "source-path": "d:\\code\\visual studio c++\\security\\security\\test.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "x64\\Release\\test.h.obj",
+            "outputs": [
+                "D:\\Code\\Visual Studio C++\\Security\\Security\\x64\\Release\\vc145.pdb",
+                "x64\\Release\\",
+                "D:\\Code\\Visual Studio C++\\Security\\Security\\x64\\Release\\test.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "test.h",
+                    "source-path": "d:\\code\\visual studio c++\\security\\security\\test.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}
