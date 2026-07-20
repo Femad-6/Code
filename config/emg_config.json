@@ -1,0 +1,107 @@
+{
+  "emg_processing": {
+    "buffer_size": 100,
+    "sampling_rate": 20,
+    "filter_coefficients": [0.1, 0.2, 0.4, 0.2, 0.1],
+    "noise_threshold": 0.05
+  },
+  "gesture_recognition": {
+    "rest_threshold": 0.1,
+    "fist_amplitude_min": 0.8,
+    "fist_frequency_min": 50,
+    "open_hand_amplitude_min": 0.6,
+    "open_hand_frequency_max": 30,
+    "grasp_amplitude_min": 0.4,
+    "grasp_frequency_min": 40,
+    "point_amplitude_min": 0.3
+  },
+  "robotic_arm": {
+    "joints": [
+      {
+        "id": 0,
+        "name": "base",
+        "min_angle": -180,
+        "max_angle": 180,
+        "speed": 45
+      },
+      {
+        "id": 1,
+        "name": "shoulder",
+        "min_angle": -90,
+        "max_angle": 90,
+        "speed": 30
+      },
+      {
+        "id": 2,
+        "name": "elbow",
+        "min_angle": -120,
+        "max_angle": 120,
+        "speed": 35
+      },
+      {
+        "id": 3,
+        "name": "wrist_pitch",
+        "min_angle": -90,
+        "max_angle": 90,
+        "speed": 50
+      },
+      {
+        "id": 4,
+        "name": "wrist_roll",
+        "min_angle": -180,
+        "max_angle": 180,
+        "speed": 60
+      },
+      {
+        "id": 5,
+        "name": "gripper",
+        "min_angle": 0,
+        "max_angle": 90,
+        "speed": 40
+      }
+    ],
+    "update_interval": 0.1,
+    "safety_margin": 5.0
+  },
+  "gesture_actions": {
+    "REST": [
+      {"joint_id": 0, "angle": 0},
+      {"joint_id": 1, "angle": 0},
+      {"joint_id": 2, "angle": 0},
+      {"joint_id": 3, "angle": 0},
+      {"joint_id": 4, "angle": 0},
+      {"joint_id": 5, "angle": 0}
+    ],
+    "FIST": [
+      {"joint_id": 1, "angle": -30},
+      {"joint_id": 2, "angle": 45},
+      {"joint_id": 5, "angle": 90}
+    ],
+    "OPEN_HAND": [
+      {"joint_id": 1, "angle": 15},
+      {"joint_id": 2, "angle": -20},
+      {"joint_id": 5, "angle": 0}
+    ],
+    "POINT": [
+      {"joint_id": 0, "angle": 30},
+      {"joint_id": 1, "angle": 0},
+      {"joint_id": 2, "angle": -45},
+      {"joint_id": 3, "angle": -15}
+    ],
+    "GRASP": [
+      {"joint_id": 1, "angle": -15},
+      {"joint_id": 2, "angle": 30},
+      {"joint_id": 5, "angle": 60}
+    ],
+    "WAVE": [
+      {"joint_id": 0, "angle": -30},
+      {"joint_id": 1, "angle": 30},
+      {"joint_id": 4, "angle": 45}
+    ]
+  },
+  "simulation": {
+    "noise_range": 0.05,
+    "demo_gesture_duration": 5.0,
+    "status_update_interval": 2.0
+  }
+}
